@@ -1,15 +1,16 @@
 use custom_error::custom_error;
-use openidconnect::reqwest::async_http_client;
 use openidconnect::{
     core::{
         CoreAuthDisplay, CoreClaimName, CoreClaimType, CoreClientAuthMethod, CoreGrantType,
         CoreJsonWebKey, CoreJsonWebKeyType, CoreJsonWebKeyUse, CoreJweContentEncryptionAlgorithm,
         CoreJweKeyManagementAlgorithm, CoreJwsSigningAlgorithm, CoreResponseMode, CoreResponseType,
         CoreSubjectIdentifierType,
-    },
-    url, AdditionalProviderMetadata, IntrospectionUrl, IssuerUrl, ProviderMetadata, RevocationUrl,
+    }, reqwest::Error, url, AdditionalProviderMetadata, HttpRequest, HttpResponse, IntrospectionUrl, IssuerUrl, ProviderMetadata, RevocationUrl
 };
 use serde::{Deserialize, Serialize};
+
+pub use crate::oidc::http::async_http_client;
+
 
 custom_error! {
     /// Error type for discovery related errors.

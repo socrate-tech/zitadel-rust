@@ -1,6 +1,5 @@
 use custom_error::custom_error;
 use openidconnect::http::Method;
-use openidconnect::reqwest::async_http_client;
 use openidconnect::url::{ParseError, Url};
 use openidconnect::HttpResponse;
 use openidconnect::{
@@ -14,6 +13,7 @@ use std::error::Error;
 use std::fmt::{Debug, Display};
 
 use crate::credentials::{Application, ApplicationError};
+use crate::oidc::http::async_http_client;
 
 #[cfg(feature = "introspection_cache")]
 pub mod cache;

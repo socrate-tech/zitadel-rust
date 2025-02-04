@@ -10,3 +10,4 @@
 
 pub mod discovery;
 pub mod introspection;
+pub mod http;

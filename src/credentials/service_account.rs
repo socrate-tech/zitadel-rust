@@ -3,7 +3,6 @@ use jsonwebtoken::{encode, Algorithm, EncodingKey, Header};
 use openidconnect::{
     core::{CoreProviderMetadata, CoreTokenType},
     http::HeaderMap,
-    reqwest::async_http_client,
     EmptyExtraTokenFields, HttpRequest, IssuerUrl, OAuth2TokenResponse, StandardTokenResponse,
 };
 use reqwest::{
@@ -14,6 +13,7 @@ use serde::{Deserialize, Serialize};
 use std::fs::read_to_string;
 
 use crate::credentials::jwt::JwtClaims;
+use crate::oidc::http::async_http_client;
 
 /// A service account for [ZITADEL](https://zitadel.ch/). The service
 /// account can be loaded from a valid JSON string or from a file containing the JSON string.
