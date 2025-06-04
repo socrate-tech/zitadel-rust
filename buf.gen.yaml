@@ -1,22 +1,24 @@
-# buf.gen.yaml
-version: v1
+version: v2
 managed:
   enabled: true
 plugins:
-  - plugin: prost
+  - local: protoc-gen-prost
     out: src/api/generated
     opt:
       - compile_well_known_types
       - extern_path=.google.protobuf=::pbjson_types
-  - plugin: tonic
+  - local: protoc-gen-tonic
     out: src/api/generated
     opt:
       - compile_well_known_types
       - extern_path=.google.protobuf=::pbjson_types
       - no_server
-  - name: prost-crate
+  - local: protoc-gen-prost-crate
     out: .
-    strategy: all
     opt:
       - gen_crate
       - include_file=src/api/generated/mod.rs
+    strategy: all
+inputs:
+  - git_repo: https://github.com/zitadel/zitadel.git
+    branch: v2.71.10
