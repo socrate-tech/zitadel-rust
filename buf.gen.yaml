@@ -21,4 +21,5 @@ plugins:
     strategy: all
 inputs:
   - git_repo: https://github.com/zitadel/zitadel.git
-    branch: v2.71.10
+    # branch: v2.71.10
+    tag: v4.4.0
